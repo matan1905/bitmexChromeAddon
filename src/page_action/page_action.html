@@ -1,0 +1,134 @@
+<!doctype html>
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="CryptoJS.js"></script>
+<script type="text/javascript" src="utils.js"></script>
+
+
+<div id="mainPopup">
+	<div class="container" style="width: 25rem;">
+		<small hidden id="error" style="color:red">Errorrr</small>
+		<div class="row">
+			<ul class="nav nav-pills nav-fill col-sm-12" id="pills-tab" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Scaled</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Order</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+				</li>
+			</ul>
+			<div class="tab-content" style="width:100%;" id="pills-tabContent">
+				<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+					<!-- Scaled order tab fields : dist distMax steps buy? sell?  -->
+					<div class="row">
+						<div class="col-sm-12">
+							<label for="dist">Closer distance</label>
+							<div class="input-group">
+								<input type="number" value="2" step="0.5" class="form-control" id="dist" placeholder="Distance from current price to closest limit">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<label for="dist-max">Further distance </label>
+							<div class="input-group">
+								<input type="number" value="10" step="0.5" class="form-control" id="dist-max" placeholder="Distance from current price to furthest limit">
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-12">
+							<label for="steps">Steps</label>
+							<div class="input-group">
+								<input type="number" value="5" step="1" class="form-control" max="49" id="steps" placeholder="number of limit orders between the distances range">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<label for="scaled-dstop">Distance to stop</label>
+							<input type="number" value="25" step="0.5" class="form-control" id="scaled-dstop">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<label for="scaled-risk">Risk</label>
+							<div class="input-group">
+								<input type="number" step="0.5" value="2" class="form-control" id="scaled-risk">
+								<div class="input-group-append">
+									<span class="input-group-text" id="inputGroupPrepend">%</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<label class="checkbox-inline col-sm-6">
+							<input type="checkbox" checked id="scaled-buy" value=""> Buy orders
+						</label>
+						<label class="checkbox-inline col-sm-6">
+							<input type="checkbox" checked id="scaled-sell" value=""> Sell orders
+						</label>
+					</div>
+
+					<div class="row">
+						<button class="btn btn btn-outline-primary col-sm-12" id="scale-order" type="button" name="button">Order</button>
+					</div>
+					<!-- End of scaled orders -->
+				</div>
+
+				<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+					<!-- Order tab - contains take profit and stop watch in addition to regular market\limit orders -->
+					<div class="row">
+						<div class="col-sm-12">
+							<label for="entry">Entry</label>
+							<div class="input-group">
+								<input type="number" step="0.5" class="form-control" id="entry" placeholder="(Leave blank for current price)">
+								<div class="input-group-append">
+									<a href="#" id="set-entry-price-to-current"><span class=" btn btn-warning" id="inputGroupPrepend">Current</span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<label for="dstop">Distance to stop</label>
+							<input type="number" value="25" step="0.5" class="form-control" id="dstop">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<label for="risk">Risk</label>
+							<div class="input-group">
+								<input type="number" step="0.5" value="2" class="form-control" id="risk">
+								<div class="input-group-append">
+									<span class="input-group-text" id="inputGroupPrepend">%</span>
+								</div>
+							</div>
+						</div>
+						<label class="checkbox-inline col-sm-12">
+							<input type="checkbox" checked id="include-market-fees" value=""> Include stop loss market fees in risk
+						</label>
+					</div>
+
+					<hr>
+					<div class="row">
+						<div class="btn-group col-sm-12">
+							<a href="#" id="risk-managment-buy" class="btn btn-outline-success leavemealone">BUY</a>
+							<a href="#" id="risk-managment-sell" class="btn btn-outline-danger leavemealone">SELL</a>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+			</div>
+		</div>
+
+	</div>
+</div>
