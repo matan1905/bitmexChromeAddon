@@ -1,8 +1,8 @@
 
 var testnet=false;
 var bitmexURL= testnet? 'https://testnet.bitmex.com':'https://www.bitmex.com';
-var apiKey='9SuCFccbBjp3VRWUixoXG_RG';//8TfqJ89u80nmJRm17UgfNBoq
-var apiSecret='McXUCUtd052vBkKWZE6f7iX6rTigGNTJXCWFsqQmHjlmPZmL';//GCrBgre2v8qCyzC2IwwZmHfBjvA1p7yMwhMWM2aTP6gPT3N9
+var apiKey='.';//.
+var apiSecret='.';//.
 var R=2;
 
 function setVars() {
